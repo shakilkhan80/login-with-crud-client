@@ -5,7 +5,9 @@ import "./index.css";
 import router from "./Routes/Route";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>
+  <div className="max-w-7xl mx-auto">
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  </div>
 );
