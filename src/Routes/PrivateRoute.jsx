@@ -15,7 +15,7 @@ const PrivateRoute = ({ children }) => {
     return children;
   }
 
-  return <Navigate to={"/login"} replace={true}></Navigate>;
+  return <Navigate to={"/login"} replace></Navigate>;
 };
 
 export default PrivateRoute;
