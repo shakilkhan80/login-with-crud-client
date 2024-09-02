@@ -1,20 +1,7 @@
 // eslint-disable-next-line react/prop-types
-const BookingRow = ({ booking }) => {
-  console.log(booking);
+const BookingRow = ({ booking, handleDelete, handleBookingConfirm }) => {
   // eslint-disable-next-line react/prop-types
-  const { _id, name, img, price, serviceName, email } = booking;
-
-  // eslint-disable-next-line no-unused-vars
-  const handleDelete = (id) => {
-    const proced = confirm("Are You sure, You want to delete!");
-
-    if (proced) {
-      fetch(``)
-        .then((res) => res.json())
-        .then((res) => res.data)
-        .catch((err) => console.log(err.message));
-    }
-  };
+  const { _id, name, img, price, serviceName, email, status } = booking;
 
   return (
     <tr>
@@ -51,7 +38,18 @@ const BookingRow = ({ booking }) => {
       <td>${price}</td>
       <td>{serviceName}</td>
       <th>
-        <button className="btn btn-ghost btn-xs">details</button>
+        {status === "confirm" ? (
+          <span className="text-white bg-green-600 rounded-xl px-4 py-1">
+            Confirmed
+          </span>
+        ) : (
+          <button
+            onClick={() => handleBookingConfirm(_id)}
+            className="btn btn-sm btn-primary"
+          >
+           Please Confirm
+          </button>
+        )}
       </th>
     </tr>
   );
